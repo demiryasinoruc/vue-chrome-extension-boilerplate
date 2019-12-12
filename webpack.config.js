@@ -11,7 +11,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const { version, name, description } = require('./package.json')
 
-const isDevMode = process.env.NODE_ENV === 'development'
 module.exports = (env, argv) => {
   const isDevMode = env.NODE_ENV === 'development'
   const config = {
@@ -101,7 +100,6 @@ module.exports = (env, argv) => {
           to: 'manifest.json',
           transform(content, path) {
             let manifest = JSON.parse(content)
-            console.log(manifest)
             manifest.version = version
             manifest.name = name
             manifest.description = description
@@ -123,17 +121,13 @@ module.exports = (env, argv) => {
       }),
     ],
   }
-
-  /**
-   * Adjust rendererConfig for production settings
-   */
   if (isDevMode) {
     config.plugins.push(
       new webpack.HotModuleReplacementPlugin(),
       new ExtensionReloader({
         reloadPage: true,
         entries: {
-          contentScript: ['content_scripts/test'],
+          contentScript: ['content_scripts/index'],
           background: 'background',
           extensionPage: 'popup',
           options: 'options',

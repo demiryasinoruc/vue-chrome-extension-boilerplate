@@ -1,1 +1,1 @@
-console.log('Content script working...')
+console.log('%cContent script working...', 'color:orange')

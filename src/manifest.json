@@ -1,4 +1,8 @@
 {
+  "manifest_version": 2,
+  "name": "vue-chrome-extension-boilerplate",
+  "description": "vue-chrome-extension-boilerplate",
+  "version": "1.0.0",
   "background": {
     "scripts": ["./background.js"]
   },
@@ -8,20 +12,17 @@
   "content_scripts": [
     {
       "all_frames": false,
-      "js": ["./contentScripts.js"],
+      "js": ["./content_scripts/index.js"],
       "matches": ["http://*/*", "https://*/*"],
       "run_at": "document_end"
     }
   ],
-  "description": "vue-chrome-extension-boilerplate",
   "icons": {
     "16": "assets/icons/icon_16.png",
     "32": "assets/icons/icon_32.png",
     "64": "assets/icons/icon_64.png",
     "128": "assets/icons/icon_128.png"
   },
-  "manifest_version": 2,
-  "name": "vue-chrome-extension-boilerplate",
   "options_ui": {
     "chrome_style": false,
     "page": "./options.html"
@@ -29,11 +30,12 @@
   "permissions": [
     "http://*/*",
     "https://*/*",
-    "background",
+    "notifications",
     "storage",
     "tabs",
+    "unlimitedStorage",
     "webRequest"
   ],
-  "version": "1.0.0",
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "web_accessible_resources": ["data/*.json", "assets/*.svg"]
 }
