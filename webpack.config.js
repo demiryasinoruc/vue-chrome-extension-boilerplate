@@ -101,7 +101,6 @@ module.exports = (env, argv) => {
           transform(content, path) {
             let manifest = JSON.parse(content)
             manifest.version = version
-            manifest.name = name
             manifest.description = description
             return JSON.stringify(manifest)
           },
@@ -119,6 +118,12 @@ module.exports = (env, argv) => {
         filename: 'popup.html',
         chunks: ['popup'],
       }),
+      new HtmlWebpackPlugin({
+        title: 'Product List',
+        template: './index.html',
+        filename: 'list.html',
+        chunks: ['list'],
+      }),
     ],
   }
   if (isDevMode) {
@@ -130,6 +135,7 @@ module.exports = (env, argv) => {
           contentScript: ['content_scripts/index'],
           background: 'background',
           extensionPage: 'popup',
+          list: 'list',
           options: 'options',
         },
       })
