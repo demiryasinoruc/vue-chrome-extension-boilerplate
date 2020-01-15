@@ -16,6 +16,15 @@
   "plugins": ["vue"],
   "rules": {
     "linebreak-style": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "no-plusplus": "off",
+    "no-use-before-define": "off",
+    "guard-for-in": "off",
+    "no-restricted-syntax": "off",
+    "no-restricted-globals": "off",
+    "import/prefer-default-export": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/html-self-closing": "off",
+    "vue/no-template-shadow": "off"
   }
 }

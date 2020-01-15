@@ -6,10 +6,19 @@
     "email": "demiryasinoruc@gmail.com",
     "name": "Demir Yasin ORUÇ"
   },
+  "scripts": {
+    "start": "webpack --mode=development --env.NODE_ENV=development --progress --hide-modules --hot --watch",
+    "build": "npm run pack && npm run remove-evals && npm run zip",
+    "lint": "eslint --ext .js,.vue --fix ./src",
+    "pack": "webpack --mode=production --env.NODE_ENV=production --progress --hide-modules",
+    "remove-evals": "node scripts/remove-evals.js",
+    "zip": "node scripts/build-zip.js"
+  },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.7.6",
     "bulma-fluent": "^0.3.18",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "webextension-polyfill": "^0.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
@@ -48,13 +57,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/demiryasinoruc/vue-chrome-extension-boilerplate"
-  },
-  "scripts": {
-    "build": "npm run pack && npm run remove-evals && npm run zip",
-    "dev": "webpack --mode=development --env.NODE_ENV=development --progress --hide-modules --hot --watch",
-    "lint": "eslint --ext .js,.vue --fix ./src",
-    "pack": "webpack --mode=production --env.NODE_ENV=production --progress --hide-modules",
-    "remove-evals": "node scripts/remove-evals.js",
-    "zip": "node scripts/build-zip.js"
   }
 }
