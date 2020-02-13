@@ -3,6 +3,7 @@
   "name": "vue-chrome-extension-boilerplate",
   "description": "vue-chrome-extension-boilerplate",
   "version": "1.0.0",
+  "default_locale": "en",
   "background": {
     "scripts": ["./background.js"]
   },

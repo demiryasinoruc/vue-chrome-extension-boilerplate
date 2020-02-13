@@ -96,6 +96,7 @@ module.exports = (env, argv) => {
       new CopyWebpackPlugin([
         { from: 'assets', to: 'assets' },
         { from: 'data', to: 'data' },
+        { from: '_locales', to: '_locales' },
         {
           from: 'manifest.json',
           to: 'manifest.json',
