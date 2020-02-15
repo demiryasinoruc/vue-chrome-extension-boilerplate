@@ -1,11 +1,14 @@
 {
-    "extension_description": {
-      "description": "Extension Description",
-      "message": "Extension Description"
-    },
-    "languagecode": {
-      "description": "Language Code",
-      "message": "en"
-    }
+  "extension_name": {
+    "description": "Extension Name",
+    "message": "Extension Name"
+  },
+  "extension_description": {
+    "description": "Extension Description",
+    "message": "Extension Description"
+  },
+  "languagecode": {
+    "description": "Language Code",
+    "message": "en"
   }
-  
+}

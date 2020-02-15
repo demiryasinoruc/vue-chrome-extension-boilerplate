@@ -9,9 +9,9 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
-const { version, name, description } = require('./package.json')
+const { version } = require('./package.json')
 
-module.exports = (env, argv) => {
+module.exports = (env) => {
   const isDevMode = env.NODE_ENV === 'development'
   const config = {
     devtool: isDevMode ? 'eval-source-map' : false,
@@ -100,11 +100,9 @@ module.exports = (env, argv) => {
         {
           from: 'manifest.json',
           to: 'manifest.json',
-          transform(content, path) {
+          transform(content) {
             const manifest = JSON.parse(content)
-            manifest.name = name
             manifest.version = version
-            manifest.description = description
             return JSON.stringify(manifest)
           }
         }

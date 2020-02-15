@@ -1,11 +1,14 @@
 {
-    "extension_description": {
-      "description": "Eklenti Açıklaması",
-      "message": "Extension Description"
-    },
-    "languagecode": {
-      "description": "Language Code",
-      "message": "tr"
-    }
+  "extension_name": {
+    "description": "Eklenti Adı",
+    "message": "Eklenti Adı"
+  },
+  "extension_description": {
+    "description": "Eklenti Açıklaması",
+    "message": "Extension Description"
+  },
+  "languagecode": {
+    "description": "Language Code",
+    "message": "tr"
   }
-  
+}
