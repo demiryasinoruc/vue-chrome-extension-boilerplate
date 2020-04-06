@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import browser from 'webextension-polyfill'
+
 export default {
   data() {
     return {
@@ -14,5 +16,4 @@ export default {
 }
 </script>
 
-<style lang="stylus">
-</style>
+<style lang="stylus"></style>
