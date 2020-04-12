@@ -7,7 +7,7 @@
     "name": "Demir Yasin ORUÇ"
   },
   "scripts": {
-    "start": "webpack --mode=development --env.NODE_ENV=development --progress --hide-modules --hot --watch",
+    "dev": "webpack --mode=development --env.NODE_ENV=development --progress --hide-modules --hot --watch",
     "build": "npm run pack && npm run remove-evals && npm run zip",
     "lint": "eslint --ext .js,.vue --fix ./src",
     "pack": "webpack --mode=production --env.NODE_ENV=production --progress --hide-modules",

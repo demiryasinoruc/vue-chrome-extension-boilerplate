@@ -9,7 +9,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
-const { version } = require('./package.json')
+const { version, name, description } = require('./package.json')
 
 module.exports = (env) => {
   const isDevMode = env.NODE_ENV === 'development'
@@ -103,6 +103,10 @@ module.exports = (env) => {
           transform(content) {
             const manifest = JSON.parse(content)
             manifest.version = version
+            if (isDevMode) {
+              manifest.name = `${name} dev mode`
+              manifest.description = `${description} dev mode`
+            }
             return JSON.stringify(manifest)
           }
         }
@@ -156,12 +160,6 @@ module.exports = (env) => {
           absolute: true
         })
       })
-      // new CopyWebpackPlugin([
-      //   {
-      //     from: path.join(__dirname, '../src/data'),
-      //     to: path.join(__dirname, '../dist/data'),
-      //   },
-      // ])
     )
   }
   return config
