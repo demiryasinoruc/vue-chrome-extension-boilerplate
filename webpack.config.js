@@ -10,7 +10,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const { version, name, description } = require('./package.json')
-// test
+// test 2
 module.exports = (env) => {
   const isDevMode = env.NODE_ENV === 'development'
   const config = {
