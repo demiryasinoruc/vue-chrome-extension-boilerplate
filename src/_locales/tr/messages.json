@@ -1,13 +1,13 @@
 {
-  "extension_name": {
+  "extensionName": {
     "description": "Eklenti Adı",
     "message": "Eklenti Adı"
   },
-  "extension_description": {
+  "extensionDescription": {
     "description": "Eklenti Açıklaması",
     "message": "Extension Description"
   },
-  "languagecode": {
+  "languageCode": {
     "description": "Language Code",
     "message": "tr"
   }

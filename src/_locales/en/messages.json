@@ -1,13 +1,13 @@
 {
-  "extension_name": {
+  "extensionName": {
     "description": "Extension Name",
     "message": "Extension Name"
   },
-  "extension_description": {
+  "extensionDescription": {
     "description": "Extension Description",
     "message": "Extension Description"
   },
-  "languagecode": {
+  "languageCode": {
     "description": "Language Code",
     "message": "en"
   }
