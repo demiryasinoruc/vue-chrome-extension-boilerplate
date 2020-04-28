@@ -1,5 +1,9 @@
 import browser from 'webextension-polyfill'
 
+import { } from '../common/config'
+import { } from '../common/keys'
+import { delay } from '../common/utility'
+
 
 // OnInstall handler
 chrome.runtime.onInstalled.addListener(details => {
@@ -16,3 +20,11 @@ browser.runtime.onMessage.addListener((request) => {
       })
   }
 })
+
+
+const start = async () => {
+  console.log('%cBackground script started...', 'color:orange')
+
+}
+
+start()

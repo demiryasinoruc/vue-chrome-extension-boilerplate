@@ -1,14 +1,14 @@
 {
   "extensionName": {
-    "description": "Extension Name",
+    "description": "Extension name will be here",
     "message": "Extension Name"
   },
   "extensionDescription": {
-    "description": "Extension Description",
+    "description": "Extension description will be here",
     "message": "Extension Description"
   },
   "languageCode": {
-    "description": "Language Code",
+    "description": "Language code will be here",
     "message": "en"
   }
 }
