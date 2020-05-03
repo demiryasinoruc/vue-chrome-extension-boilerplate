@@ -15,6 +15,13 @@ const extractExtensionData = () => ({
   version: extPackageJson.version,
 })
 
+const extractExtensionNameFromLocales = () => {
+  const messages = require('../src/_locales/tr/messages.json')
+  return {
+    name: messages.extensionName.message
+  }
+}
+
 const makeDestZipDirIfNotExists = () => {
   if (!fs.existsSync(DEST_ZIP_DIR)) {
     fs.mkdirSync(DEST_ZIP_DIR)
@@ -32,8 +39,13 @@ const buildZip = (src, dist, zipFilename) => {
 }
 
 const main = () => {
-  const { name, version } = extractExtensionData()
-  const zipFilename = `${name}.zip`
+  const data = extractExtensionData()
+  let { name } = data
+  const { version } = data
+  if (name === '__MSG_extensionName__') {
+    ({ name } = extractExtensionNameFromLocales())
+  }
+  const zipFilename = `${name}-${version}.zip`
 
   makeDestZipDirIfNotExists()
 

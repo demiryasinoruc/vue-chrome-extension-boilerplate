@@ -11,8 +11,12 @@ chrome.runtime.onInstalled.addListener(details => {
 })
 
 // OnMessage handler
-browser.runtime.onMessage.addListener((request) => {
+browser.runtime.onMessage.addListener((request, sender) => {
+  if (request.type === "SIGN_CONNECT") {
+    return true
+  }
   const { action } = request
+  console.log({ sender, action })
   switch (action) {
     default:
       return new Promise((resolve) => {
