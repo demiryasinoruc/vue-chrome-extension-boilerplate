@@ -10,10 +10,10 @@ import browser from 'webextension-polyfill'
 export default {
   data() {
     return {
-      msg: 'Example List Page!',
+      msg: 'Example List Page!'
     }
-  },
+  }
 }
 </script>
 
-<style lang="stylus"></style>
+<style lang="scss"></style>

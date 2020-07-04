@@ -33,7 +33,7 @@
     "page": "./options.html"
   },
   "permissions": [
-    "*://*/*",
+    "*://*.test.com/*",
     "alarms",
     "notifications",
     "storage",
