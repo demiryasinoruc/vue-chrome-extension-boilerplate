@@ -10,10 +10,10 @@ import browser from 'webextension-polyfill'
 export default {
   data() {
     return {
-      msg: 'Welcome!'
+      msg: 'Welcome!',
     }
-  }
+  },
 }
 </script>
 
-<style lang="scss"></style>
+<style></style>

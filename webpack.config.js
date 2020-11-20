@@ -11,7 +11,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const { version, name, description } = require('./package.json')
 
-module.exports = (env) => {
+module.exports = env => {
   const isDevMode = env.NODE_ENV === 'development'
   const config = {
     devtool: isDevMode ? 'eval-source-map' : false,
@@ -25,7 +25,7 @@ module.exports = (env) => {
     },
     output: {
       path: path.resolve(__dirname, './dist'),
-      publicPath: '.',
+      publicPath: './',
       filename: '[name].js'
     },
     module: {
@@ -77,7 +77,8 @@ module.exports = (env) => {
           test: /\.(png|jpg|gif|svg)$/,
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]?[hash]'
+            name: '[name].[ext]?[hash]',
+            esModule: false
           }
         }
       ]
