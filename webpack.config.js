@@ -94,24 +94,26 @@ module.exports = env => {
       new CleanWebpackPlugin({
         cleanStaleWebpackAssets: false
       }),
-      new CopyWebpackPlugin([
-        { from: 'assets', to: 'assets' },
-        { from: 'data', to: 'data' },
-        { from: '_locales', to: '_locales' },
-        {
-          from: 'manifest.json',
-          to: 'manifest.json',
-          transform(content) {
-            const manifest = JSON.parse(content)
-            manifest.version = version
-            if (isDevMode) {
-              manifest.name = `${name} dev mode`
-              manifest.description = `${description} dev mode`
+      new CopyWebpackPlugin({
+        patterns: [
+          { from: 'assets', to: 'assets' },
+          { from: 'data', to: 'data' },
+          { from: '_locales', to: '_locales' },
+          {
+            from: 'manifest.json',
+            to: 'manifest.json',
+            transform(content) {
+              const manifest = JSON.parse(content)
+              manifest.version = version
+              if (isDevMode) {
+                manifest.name = `${name} dev mode`
+                manifest.description = `${description} dev mode`
+              }
+              return JSON.stringify(manifest)
             }
-            return JSON.stringify(manifest)
           }
-        }
-      ]),
+        ]
+      }),
       new HtmlWebpackPlugin({
         title: 'Options',
         template: './index.html',
