@@ -13,6 +13,14 @@ const { version, name, description } = require('./package.json')
 
 module.exports = env => {
   const isDevMode = env.NODE_ENV === 'development'
+  const portParameter = process.argv.find(
+    i => i.startsWith('--p=') || i.startsWith('--port=')
+  )
+  let port = 5000
+  if (portParameter) {
+    // eslint-disable-next-line prefer-destructuring
+    port = portParameter.split('=')[1]
+  }
   const config = {
     devtool: isDevMode ? 'eval-source-map' : false,
     context: path.resolve(__dirname, './src'),
@@ -138,6 +146,7 @@ module.exports = env => {
     config.plugins.push(
       new webpack.HotModuleReplacementPlugin(),
       new ExtensionReloader({
+        port,
         reloadPage: true,
         entries: {
           contentScript: ['content_scripts/index'],
