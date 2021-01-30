@@ -5,14 +5,28 @@ import { EXAMPLE_KEY } from '../common/keys'
 import { EXAMPLE_PATTERN } from '../common/match.patterns'
 import { delay } from '../common/utility'
 
-// On Install handler
-chrome.runtime.onInstalled.addListener(async installDetails => {
+// ##### Methods
+
+const init = async () => {
+  await delay(1)
+  console.log('%cBackground script started...', 'color:orange')
+}
+
+// ##### Handlers
+
+// On Install Handler
+const onInstallHandler = async installDetails => {
   await browser.storage.local.set({})
   console.log({ installDetails })
-})
+}
 
-// On Message handler
-browser.runtime.onMessage.addListener((request, sender) => {
+// On Web Request Completed Handler
+const onWebRequestCompletedHandler = async webRequestDetails => {
+  console.log({ webRequestDetails })
+}
+
+// On Runtime Message Handler
+const onRuntimeMessageHandler = (request, sender) => {
   if (request.type === 'SIGN_CONNECT') {
     return true
   }
@@ -27,25 +41,27 @@ browser.runtime.onMessage.addListener((request, sender) => {
       })
     }
     default: {
-      return new Promise(resolve => {
+      return new Promise(async resolve => {
         resolve({ message: 'Default Resolver' })
       })
     }
   }
-})
-
-const init = async () => {
-  await delay(1)
-  console.log('%cBackground script started...', 'color:orange')
 }
 
-init()
+// ##### Listeners
 
-browser.webRequest.onCompleted.addListener(
-  async webRequestDetails => {
-    console.log({ webRequestDetails })
-  },
-  {
-    urls: [EXAMPLE_PATTERN]
-  }
-)
+// On Install Listener
+browser.runtime.onInstalled.addListener(onInstallHandler)
+
+// On Web Request Completede Listener
+browser.webRequest.onCompleted.addListener(onWebRequestCompletedHandler, {
+  urls: [
+    /* *** Make sure you add the links to your manifest file *** */
+    EXAMPLE_PATTERN
+  ]
+})
+
+// On Runtime Message Listener
+browser.runtime.onMessage.addListener(onRuntimeMessageHandler)
+
+init()

@@ -28,10 +28,7 @@
     "64": "assets/icons/icon_64.png",
     "128": "assets/icons/icon_128.png"
   },
-  "options_ui": {
-    "chrome_style": false,
-    "page": "./options.html"
-  },
+  "options_page": "./options.html",
   "permissions": [
     "*://*.test.com/*",
     "alarms",
