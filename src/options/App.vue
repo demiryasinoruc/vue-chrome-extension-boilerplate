@@ -69,7 +69,7 @@ export default {
       testTextbox: 'Example text',
       testTextArea: 'Example Value',
       selectedValue: 'Example Selected',
-      selectValues: ['Example Selected', 'Example Unselected'],
+      selectValues: ['Example Selected', 'Example Unselected']
     }
   },
   created() {
@@ -86,8 +86,8 @@ export default {
     },
     async save() {
       await browser.storage.local.set({ settings: {} })
-    },
-  },
+    }
+  }
 }
 </script>
 

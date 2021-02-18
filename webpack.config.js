@@ -88,6 +88,14 @@ module.exports = env => {
             name: '[name].[ext]?[hash]',
             esModule: false
           }
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|svg)$/,
+          loader: 'file-loader',
+          options: {
+            publicPath: './assets/fonts/',
+            outputPath: './assets/fonts/'
+          }
         }
       ]
     },
