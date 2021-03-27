@@ -74,7 +74,6 @@ export default {
   },
   created() {
     document.querySelector('title').text = 'Ayarlar'
-    // document.querySelector('body').classList.add('bg-dark')
   },
   mounted() {
     this.init()

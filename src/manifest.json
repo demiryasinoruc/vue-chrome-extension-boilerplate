@@ -2,7 +2,6 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.0.0",
   "default_locale": "tr",
   "background": {
     "scripts": ["./background.js"]
@@ -34,7 +33,6 @@
     "alarms",
     "notifications",
     "storage",
-    "tabs",
     "unlimitedStorage",
     "webRequest"
   ],

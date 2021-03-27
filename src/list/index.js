@@ -1,5 +1,7 @@
 import Vue from 'vue'
-import 'bootstrap/scss/bootstrap.scss'
+
+import '../assets/scss/custom-bootstrap.scss'
+
 import App from './App.vue'
 
 // eslint-disable-next-line

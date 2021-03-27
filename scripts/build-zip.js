@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 
 const fs = require('fs')
 const path = require('path')
@@ -6,17 +8,16 @@ const path = require('path')
 var archiver = require('archiver')
 
 const extPackageJson = require('../src/manifest.json')
+const packageJson = require('../package.json')
 
 const DEST_DIR = path.join(__dirname, '../dist')
 const DEST_ZIP_DIR = path.join(__dirname, '../dist-zip')
 
-const extractExtensionData = () => ({
-  name: extPackageJson.name,
-  version: extPackageJson.version,
-})
-
 const extractExtensionNameFromLocales = () => {
-  const messages = require('../src/_locales/tr/messages.json')
+  const messagesPath = `../src/_locales/${
+    extPackageJson.default_locale
+  }/messages.json`
+  const messages = require(messagesPath)
   return {
     name: messages.extensionName.message
   }
@@ -39,11 +40,10 @@ const buildZip = (src, dist, zipFilename) => {
 }
 
 const main = () => {
-  const data = extractExtensionData()
-  let { name } = data
-  const { version } = data
+  let { name } = extPackageJson
+  const { version } = packageJson
   if (name === '__MSG_extensionName__') {
-    ({ name } = extractExtensionNameFromLocales())
+    ;({ name } = extractExtensionNameFromLocales())
   }
   const zipFilename = `${name}-${version}.zip`
 

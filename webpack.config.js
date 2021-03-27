@@ -114,7 +114,13 @@ module.exports = env => {
         patterns: [
           { from: 'assets', to: 'assets' },
           { from: 'data', to: 'data' },
-          { from: '_locales', to: '_locales' },
+          {
+            from: '_locales',
+            to: '_locales',
+            transform(content) {
+              return JSON.stringify(JSON.parse(content))
+            }
+          },
           {
             from: 'manifest.json',
             to: 'manifest.json',
@@ -143,7 +149,7 @@ module.exports = env => {
         chunks: ['popup']
       }),
       new HtmlWebpackPlugin({
-        title: 'Product List',
+        title: 'List',
         template: './index.html',
         filename: 'list.html',
         chunks: ['list']

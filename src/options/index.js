@@ -1,7 +1,6 @@
 import Vue from 'vue'
 
-import './options.scss'
-import '../common/theme.selector'
+import '../assets/scss/custom-bootstrap.scss'
 
 import App from './App.vue'
 
